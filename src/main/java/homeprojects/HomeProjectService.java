@@ -4,7 +4,6 @@ package homeprojects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 // This is all of the logic for the application
 // outide of the controller and the repo .. this does the actual work
 @Service
@@ -15,15 +14,21 @@ public class HomeProjectService {
     @Autowired
     private HomeProjectRepository repository;
 
-    public List<HomeProject> getAll() {
+    public Iterable<HomeProject> getAll() {
         return repository.findAll();
     }
-
+    // fixed for crud repo
+    // as per reviewing classes
     public HomeProject getById(Long id) {
+
+
         return repository.findById(id).orElse(null);
     }
 
     public HomeProject create(HomeProject project) {
+
+
+
         return repository.save(project);
     }
 

@@ -26,11 +26,13 @@ public class HomeProjectController {
     @Autowired
     private HomeProjectService service;
 
+
+    // this included get mapping to homeProject for crud as well
+    // quick update to add it in getting all as a return
     @GetMapping
-    public List<HomeProject> getAll() {
+    public Iterable<HomeProject> getAll() {
         return service.getAll();
     }
-
 
 
 
