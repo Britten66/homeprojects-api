@@ -1,4 +1,5 @@
 package homeprojects;
+//author: Christopher Britten
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -6,9 +7,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
+
+// this will show the model section. It represents one home project and its info
+// The annotation turns it into a table in the database
 @Entity
 @Table(name = "projects")
 public class HomeProject {
+
+// The id is the PK
+// The database fills it in and with auto incrementing
 
     @Id
 

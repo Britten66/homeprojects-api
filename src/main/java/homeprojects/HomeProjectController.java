@@ -1,6 +1,7 @@
 package homeprojects;
 
 
+//author: Christopher Britten
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-
+// This is the controller of the project it will be handling the web requests that are going to be coming in to /api/projects.
+// will take a request, pass it to the service hten sends back the response
 @RestController
 @RequestMapping("/api/projects")
 public class HomeProjectController {
@@ -28,6 +30,9 @@ public class HomeProjectController {
     public List<HomeProject> getAll() {
         return service.getAll();
     }
+
+
+
 
 
     @GetMapping("/{id}")

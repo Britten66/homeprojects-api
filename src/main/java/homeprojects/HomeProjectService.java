@@ -1,12 +1,16 @@
 package homeprojects;
+//author: Christopher Britten
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+// This is all of the logic for the application
+// outide of the controller and the repo .. this does the actual work
 @Service
 public class HomeProjectService {
+
+
 
     @Autowired
     private HomeProjectRepository repository;
@@ -23,6 +27,13 @@ public class HomeProjectService {
         return repository.save(project);
     }
 
+
+
+
+
+    // This pulls the existing project first
+    // then copies the new values onto it before saving
+
     public HomeProject update(Long id, HomeProject updated) {
         HomeProject existing = repository.findById(id).orElse(null);
         if (existing == null) {
@@ -36,11 +47,16 @@ public class HomeProjectService {
         return repository.save(existing);
     }
 
+
+    // simple delete
+
     public boolean delete(Long id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
             return true;
         }
+
+        // if not then return err
         return false;
     }
 }
